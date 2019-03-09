@@ -1,0 +1,32 @@
+﻿@model Survey.ViewModels.WelcomeViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<style type="text/css">
+    table {
+        border-collapse: collapse;
+    }
+
+    td, th {
+        border: 1px solid black;
+    }
+</style>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        @Model.Message
+        <br>@Model.Date.ToString("dd/MM/yyyy")
+    </div>
+    <input type="text" id="nom" value="@Model.Restaurant.Name" />
+    <input type="text" id="telephone" value="@Model.Restaurant.PhoneNumber" />
+    <input type="submit" value="Envoyer" />
+</body>
+</html>
