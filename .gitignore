@@ -27,3 +27,4 @@ RestoChoice/bin/EntityFramework.xml
 RestoChoice/bin/EntityFramework.SqlServer.xml
 RestoChoice.Tests/bin/
 RestoChoice.Tests/obj/
+.vs/

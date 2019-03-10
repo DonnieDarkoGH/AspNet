@@ -8,6 +8,7 @@ namespace Survey.Models
 		public int Id { get; set; }
 		[Required]
 		public string Name { get; set; }
+		[Display(Name = "Phone")]
 		public string PhoneNumber { get; set; }
 	}
 }

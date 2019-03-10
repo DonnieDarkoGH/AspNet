@@ -214,6 +214,8 @@
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
     <Content Include="Views\Welcome\Index.cshtml" />
+    <Content Include="Views\Shared\Connection.cshtml" />
+    <Content Include="Views\Shared\DisplayRestaurantsList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
