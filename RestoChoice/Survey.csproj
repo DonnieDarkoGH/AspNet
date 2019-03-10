@@ -190,16 +190,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\RestaurantController.cs" />
     <Compile Include="Controllers\WelcomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Dal.cs" />
+    <Compile Include="Models\IDatabaseInitializer.cs" />
+    <Compile Include="Models\RestaurantInitializer.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\SurveyDbContext.cs" />
     <Compile Include="Models\IDal.cs" />
@@ -216,6 +220,9 @@
     <Content Include="Views\Welcome\Index.cshtml" />
     <Content Include="Views\Shared\Connection.cshtml" />
     <Content Include="Views\Shared\DisplayRestaurantsList.cshtml" />
+    <Content Include="Views\Restaurant\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Restaurant\ModifyRestaurant.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

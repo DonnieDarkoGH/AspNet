@@ -1,0 +1,29 @@
+﻿@model Survey.Models.Restaurant
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Modify Restaurant</title>
+        <link type="text/css" href="../../Content/Site.css" rel="stylesheet" />
+        <script type="text/javascript" src="../../Scripts/jquery-1.10.2.js"></script>
+        <script type="text/javascript" src="../../Scripts/jquery.validate-vsdoc.js"></script>
+        <script type="text/javascript" src="../../Scripts/jquery.validate.unobtrusive.js"></script>
+    </head>
+    <body>
+        @using (Html.BeginForm())
+        {
+            <fieldset>
+                <legend>Modify Restaurant</legend>
+                @Html.LabelFor(r => r.Name)
+                @Html.TextBoxFor(r => r.Name)
+                @Html.ValidationMessageFor(r => r.Name)
+                <br />
+                @Html.LabelFor(r => r.PhoneNumber)
+                @Html.TextBoxFor(r => r.PhoneNumber)
+                <br />
+                <input type="submit" value="Submit" />
+            </fieldset>
+        }
+    </body>
+</html>
+

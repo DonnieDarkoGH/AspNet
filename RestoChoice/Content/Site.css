@@ -1,0 +1,27 @@
+﻿
+.field-validation-error {
+    color: #f00;
+}
+
+.validation-summary-errors {
+    color: #f00;
+    font-weight: bold
+}
+
+;
+.input-validation-error {
+    border: 2px solide #f00;
+    background-color: #fee
+}
+
+input[type="checkbox"].input-validation-error {
+    outline: 2px solid #f00;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid black;
+}

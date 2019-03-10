@@ -10,7 +10,7 @@ namespace Survey.Models
 		User GetUser(int id);
 
 		void CreateRestaurant(string name, string phoneNumber);
-		void ModifyRestaurant(int id, string name, string phoneNumber);
+		void ModifyRestaurant(int? id, string name, string phoneNumber);
 		bool IsExistingRestaurant(string name);
 
 		int AddUser(string name, string password);

@@ -22,30 +22,7 @@
 </head>
 <body>
     <div>
-        @Model.Message
-        <br>@Html.LabelFor(model => model.Date);
-    </div>
-    @Html.LabelFor(model => model.Restaurant.Name)
-    @Html.TextBoxFor(model => model.Restaurant.Name, new { style = "color:red" })
-    @Html.LabelFor(model => model.Restaurant.PhoneNumber)
-    @Html.TextBoxFor(model => model.Restaurant.PhoneNumber)
-    <input type="submit" value="Envoyer" />
-    <div>
-        @Html.DropDownList("RestoList", (SelectList)ViewBag.RestoList)
-    </div>
-    <div>
-        @using (Html.BeginForm("Index", "Welcome", FormMethod.Post, new { target = "_blank" }))
-        {
-            @Html.Label("hasLegalAge", "Select if you reached legal age ")
-            @Html.CheckBox("hasLegalAge")
-            <input type="submit" value="Send" />
-        }
-    </div>
-    <div style="width:300px">
-        @Html.Partial("Connection", Model)
-    </div>
-    <div>
-        @Html.Action("DisplayRestaurantsList")
+        This is the Welcome View
     </div>
 </body>
 </html>

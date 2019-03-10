@@ -1,0 +1,33 @@
+﻿@model List<Survey.Models.Restaurant>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Restaurants List</title>
+        <link type="text/css" href="../../Content/Site.css" rel="stylesheet" />
+    </head>
+    <body >
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Id</th>
+                <th>Link</th>
+            </tr>
+            @foreach (var restaurant in Model)
+            {
+            <tr>
+                <td>@restaurant.Name</td>
+                <td>@restaurant.PhoneNumber</td>
+                <td>@ViewBag.id</td>
+                <td>@Html.ActionLink("Modify " + restaurant.Name, "ModifyRestaurant", new { id = restaurant.Id })</td>
+            </tr>
+            }
+        </table>
+    </body >
+</html >

@@ -21,7 +21,7 @@ namespace Survey.Models
 			_dbContext.SaveChanges();
 		}
 
-		public void ModifyRestaurant(int id, string name, string phoneNumber)
+		public void ModifyRestaurant(int? id, string name, string phoneNumber)
 		{
 			Restaurant restaurant = _dbContext.Restaurants.First(r => r.Id == id);
 			if (restaurant != null)
