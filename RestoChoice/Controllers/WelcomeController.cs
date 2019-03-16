@@ -14,5 +14,13 @@ namespace Survey.Controllers
 
 			return View(); 
         }
+
+		public ActionResult DisplayMessageWithDate(string id)
+		{
+			ViewBag.Message = "Hello " + id + " !";
+			ViewData["Date"] = DateTime.Now;
+
+			return View("Index");
+		}
     }
 }
