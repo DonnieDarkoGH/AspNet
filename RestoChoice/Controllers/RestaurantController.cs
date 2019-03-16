@@ -30,7 +30,7 @@ namespace Survey.Controllers
 
 					if (restaurant == null)
 					{
-						return View("Error");
+						return HttpNotFound();
 					}
 
 					return View(restaurant);
@@ -39,6 +39,33 @@ namespace Survey.Controllers
 			else
 			{
 				return View("Error");
+			}
+		}
+
+		public ActionResult CreateRestaurant()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		public ActionResult CreateRestaurant(Restaurant resto)
+		{
+			using (IDal dal = new Dal())
+			{
+				if (dal.IsExistingRestaurant(resto.Name))
+				{
+					ModelState.AddModelError("Name", "This restaurant already exists");
+					return View(resto);
+				}
+				else if (ModelState.IsValid)
+				{
+					dal.CreateRestaurant(resto.Name, resto.PhoneNumber);
+					return RedirectToAction("Index");
+				}
+				else
+				{
+					return View(resto);
+				}		
 			}
 		}
 
@@ -52,10 +79,7 @@ namespace Survey.Controllers
 
 			using (IDal dal = new Dal())
 			{
-				if (Request.HttpMethod == "POST")
-				{
-					dal.ModifyRestaurant(resto.Id, resto.Name, resto.PhoneNumber);
-				}
+				dal.ModifyRestaurant(resto.Id, resto.Name, resto.PhoneNumber);
 
 				return RedirectToAction("Index");
 			}

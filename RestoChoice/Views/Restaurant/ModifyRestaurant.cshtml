@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width" />
         <title>Modify Restaurant</title>
         <link type="text/css" href="../../Content/Site.css" rel="stylesheet" />
-        <script type="text/javascript" src="../../Scripts/jquery-1.10.2.js"></script>
+        <script type="text/javascript" src="../../Scripts/jquery-3.3.1.js"></script>
         <script type="text/javascript" src="../../Scripts/jquery.validate-vsdoc.js"></script>
         <script type="text/javascript" src="../../Scripts/jquery.validate.unobtrusive.js"></script>
     </head>
@@ -20,6 +20,11 @@
                 <br />
                 @Html.LabelFor(r => r.PhoneNumber)
                 @Html.TextBoxFor(r => r.PhoneNumber)
+                @Html.ValidationMessageFor(r => r.PhoneNumber)
+                <br />
+                @Html.LabelFor(r => r.Email)
+                @Html.TextBoxFor(r => r.Email)
+                @Html.ValidationMessageFor(r => r.Email)
                 <br />
                 <input type="submit" value="Submit" />
             </fieldset>
