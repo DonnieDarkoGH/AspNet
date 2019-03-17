@@ -15,12 +15,15 @@ namespace Survey.Controllers
 			return View(); 
         }
 
-		public ActionResult DisplayMessageWithDate(string id)
+		[HttpPost]
+		[ActionName("Index")]
+		public ActionResult CreateSurvey()
 		{
-			ViewBag.Message = "Hello " + id + " !";
-			ViewData["Date"] = DateTime.Now;
-
-			return View("Index");
+			using (IDal dal = new Dal())
+			{
+				int newSurveyId = dal.CreateSurvey();
+				return RedirectToAction("Index", "Survey", new { id = newSurveyId });
+			}
 		}
     }
 }

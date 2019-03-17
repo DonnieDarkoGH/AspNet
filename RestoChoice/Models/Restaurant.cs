@@ -15,15 +15,5 @@ namespace Survey.Models
 		public string PhoneNumber { get; set; }
 		[TwoParametersValidation(Parameter1 = "PhoneNumber", Parameter2 = "Email", ErrorMessage = "You must specify at least one way to contact the restaurant")]
 		public string Email { get; set; }
-
-		//public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-		//{
-		//	if (string.IsNullOrWhiteSpace(PhoneNumber) && string.IsNullOrWhiteSpace(Email))
-		//	{
-		//		yield return new ValidationResult(
-		//			"You must enter a phone number or an email adress", 
-		//			new [] { "PhoneNumber", "Email"});
-		//	}
-		//}
 	}
 }

@@ -15,9 +15,9 @@ namespace Survey
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-			//IDatabaseInitializer<Models.SurveyDbContext> initializer = new Models.RestaurantInitializer();
-			//Database.SetInitializer(initializer);
-			//initializer.InitializeDatabase(new Models.SurveyDbContext());
+			IDatabaseInitializer<Models.SurveyDbContext> initializer = new Models.RestaurantInitializer();
+			Database.SetInitializer(initializer);
+			initializer.InitializeDatabase(new Models.SurveyDbContext());
 		}
     }
 }

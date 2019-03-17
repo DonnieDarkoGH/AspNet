@@ -43,7 +43,7 @@ namespace Survey.Models
 			return GetAllRestaurants().Exists(r => r.Name == name);
 		}
 
-		public User GetUser(string idStr)
+		public User GetUser_tmp(string idStr)
 		{
 			int id = -1;
 			if (int.TryParse(idStr, out id))
@@ -58,6 +58,47 @@ namespace Survey.Models
 		{
 			return _dbContext.Users.ToList().FirstOrDefault(u => u.Id == id);
 		}
+
+		#region Debug
+		public User GetUser(string idStr)
+		{
+			switch (idStr)
+			{
+				case "Chrome":
+					return CreeOuRecupere("Nico", "1234");
+				case "IE":
+					return CreeOuRecupere("Jérémie", "1234");
+				case "Firefox":
+					return CreeOuRecupere("Delphine", "1234");
+				default:
+					return CreeOuRecupere("Timéo", "1234");
+			}
+		}
+
+		private User CreeOuRecupere(string nom, string motDePasse)
+		{
+			User utilisateur = Authenticate(nom, motDePasse);
+			if (utilisateur == null)
+			{
+				int id = AddUser(nom, motDePasse);
+				return GetUser(id);
+			}
+			return utilisateur;
+		}
+
+		public bool HasAlreadyVoted(int idSondage, string idStr)
+		{
+			User utilisateur = GetUser(idStr);
+			if (utilisateur != null)
+			{
+				Survey sondage = _dbContext.Surveys.First(s => s.Id == idSondage);
+				if (sondage.Votes == null)
+					return false;
+				return sondage.Votes.Any(v => v.User != null && v.User.Id == utilisateur.Id);
+			}
+			return false;
+		}
+		#endregion Debug
 
 		public int AddUser(string name, string password)
 		{
@@ -79,7 +120,7 @@ namespace Survey.Models
 				u => u.Name == name && u.Password == EncodeMD5(password));
 		}
 
-		public bool HasAlreadyVoted(int surveyId, string userIdtoString)
+		public bool HasAlreadyVoted_tmp(int surveyId, string userIdtoString)
 		{
 			Survey survey = _dbContext.Surveys.First(s => s.Id == surveyId);
 			if (survey == null || survey.Votes == null)

@@ -1,0 +1,30 @@
+﻿@model Survey.ViewModels.RestaurantSurveyViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script type="text/javascript" src="../../Scripts/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../../Scripts/jquery.validate-vsdoc.js"></script>
+    <script type="text/javascript" src="../../Scripts/jquery.validate.unobtrusive.js"></script>
+</head>
+<body>
+    <div>
+        Select the restaurant you would like to go : The choice is definitive !
+    </div>
+    @using (Html.BeginForm())
+    {
+        for (int i = 0; i < Model.SelectionsList.Count; i++)
+        {
+            Html.CheckBoxFor(Model => Model.SelectionsList[i].IsSelected);
+            Html.LabelFor(Model => Model.SelectionsList[i].NameAndPhone);
+        }
+    }
+</body>
+</html>

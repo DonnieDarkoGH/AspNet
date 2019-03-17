@@ -22,7 +22,15 @@
 </head>
 <body>
     <div>
-        This is the Welcome View
+        Ready to choose a restaurant ?
     </div>
+    @using (Html.BeginForm())
+    {
+        <input type="submit" value="Create a survey" />
+    }
+    <ul>
+        <li>@Html.ActionLink("Add a restaurant", "CreateRestaurant", "Restaurant")</li>
+        <li>@Html.ActionLink("Modify restaurants", "Index", "Restaurant")</li>
+    </ul>
 </body>
 </html>
